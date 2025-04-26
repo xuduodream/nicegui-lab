@@ -17,6 +17,6 @@ def create_app_page():
 
 def submit_exclusion(rm_package: str):
     if rm_package:
-        ui.notify(f'RM package submitted: {rm_package}')
+        ui.notify(f'RM package submitted: {rm_package}', type='positive')
     else:
         ui.notify('Please provide a RM package', type='negative')
