@@ -1,13 +1,10 @@
-from nicegui import ui
+from nicegui import app, ui
 import page1
 
-# Store the authentication state
-authenticated = False
 
 def login(username: str, password: str):
-    global authenticated
     if username == 'admin' and password == 'password':
-        authenticated = True
+        app.storage.user.update({'username': username, 'authenticated': True})
         ui.navigate.to('/app')
         ui.notify('Login Succeed', type='positive')
     else:
@@ -28,11 +25,12 @@ def login_page():
 
 @ui.page('/app')
 def app_page():
-    global authenticated
-    if authenticated:
+    # Check if the user is authenticated   
+    if app.storage.user.get('authenticated', True):
+        ui.notify(f'Hello {app.storage.user["username"]}', type='positive')
         page1.create_app_page()
     else:
         ui.notify('Please login first', type='warning')
         ui.navigate.to('/')
 
-ui.run(title='Iceberg')
+ui.run(title='Iceberg',storage_secret='THIS_NEEDS_TO_BE_CHANGED')

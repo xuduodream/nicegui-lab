@@ -1,9 +1,8 @@
-from nicegui import ui
+from nicegui import app, ui
 
 
 def logout():
-    global authenticated
-    authenticated = False
+    app.storage.user.clear()
     ui.navigate.to('/')
     ui.notify('Logged out', type='info')
 
