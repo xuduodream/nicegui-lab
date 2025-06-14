@@ -1,5 +1,6 @@
 from nicegui import app, ui
-import page1
+import app.webtool as webtool
+
 
 ############ Functions for login and app page creation ############
 def login(username: str, password: str):
@@ -27,12 +28,25 @@ def create_login_page():
 def login_page():
     create_login_page()
 
+# @ui.page('/app')
+# def app_page():
+#     try:
+#         if app.storage.user.get('authenticated', False):
+#             ui.notify(f'Hello {app.storage.user["username"]}', type='positive')
+#             iceberg.create_app_page()
+#         else:
+#             ui.notify('Please login first', type='warning')
+#             ui.navigate.to('/')
+#     except Exception as e:
+#         ui.notify(f'An error occurred: {str(e)}', type='negative')
+
+
 @ui.page('/app')
 def app_page():
     try:
         if app.storage.user.get('authenticated', False):
             ui.notify(f'Hello {app.storage.user["username"]}', type='positive')
-            page1.create_app_page()
+            webtool.create_app_page()
         else:
             ui.notify('Please login first', type='warning')
             ui.navigate.to('/')

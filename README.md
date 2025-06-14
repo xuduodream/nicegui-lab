@@ -2,5 +2,5 @@
 
 ## Tu run 
 ```bash
-python3 file.py
+python3 main.py
 ```
