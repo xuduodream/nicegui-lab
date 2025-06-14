@@ -1,6 +1,7 @@
 from nicegui import app, ui
 import page1
 
+############ Functions for login and app page creation ############
 def login(username: str, password: str):
     try:
         if username == 'admin' and password == 'password':
@@ -19,6 +20,9 @@ def create_login_page():
         password = ui.input('Password', password=True, password_toggle_button=True).classes('w-64')
         ui.button('Login', on_click=lambda: login(username.value, password.value)).classes('mt-4')
 
+
+
+############ UI Pages ############
 @ui.page('/')
 def login_page():
     create_login_page()
@@ -35,6 +39,9 @@ def app_page():
     except Exception as e:
         ui.notify(f'An error occurred: {str(e)}', type='negative')
 
+
+
+############# Main Execution ############
 if __name__ in {"__main__", "__mp_main__"}:
     ui.run(title='Iceberg', storage_secret='THIS_NEEDS_TO_BE_CHANGED')
 

@@ -1,7 +1,7 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://pypi.mirrors.ustc.edu.cn/simple"
 verify_ssl = true
-name = "pypi"
+name = "pip_conf_index_global"
 
 [packages]
 nicegui = "*"
@@ -9,4 +9,5 @@ nicegui = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
+python_full_version = "3.13.3"
