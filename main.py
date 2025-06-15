@@ -16,7 +16,7 @@ def login(username: str, password: str):
 
 def create_login_page():
     with ui.column().classes('mt-20 mx-auto items-center'):
-        ui.label('Login').classes('text-2xl mb-4')
+        ui.label('Webtool Manager').classes('text-2xl mb-4')
         username = ui.input('Username').classes('w-64')
         password = ui.input('Password', password=True, password_toggle_button=True).classes('w-64')
         ui.button('Login', on_click=lambda: login(username.value, password.value)).classes('mt-4')
@@ -57,5 +57,4 @@ def app_page():
 
 ############# Main Execution ############
 if __name__ in {"__main__", "__mp_main__"}:
-    ui.run(title='Iceberg', storage_secret='THIS_NEEDS_TO_BE_CHANGED')
-
+    ui.run(title='Webtool Manager', favicon='⚙️', storage_secret='THIS_NEEDS_TO_BE_CHANGED')
