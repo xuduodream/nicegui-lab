@@ -28,18 +28,6 @@ def create_login_page():
 def login_page():
     create_login_page()
 
-# @ui.page('/app')
-# def app_page():
-#     try:
-#         if app.storage.user.get('authenticated', False):
-#             ui.notify(f'Hello {app.storage.user["username"]}', type='positive')
-#             iceberg.create_app_page()
-#         else:
-#             ui.notify('Please login first', type='warning')
-#             ui.navigate.to('/')
-#     except Exception as e:
-#         ui.notify(f'An error occurred: {str(e)}', type='negative')
-
 
 @ui.page('/app')
 def app_page():
